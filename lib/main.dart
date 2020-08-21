@@ -69,14 +69,40 @@ Widget titleSection = Container(
           ],
         ),
       ),
-      Icon(
-        Icons.star,
-        color: Colors.red[500],
-      ),
-      Text('41'),
+      FavoriteWidget(),
     ],
   ),
 );
+
+class FavoriteWidget extends StatefulWidget {
+  @override
+  _FavoriteWidgetState createState() => _FavoriteWidgetState();
+}
+
+class _FavoriteWidgetState extends State<FavoriteWidget> {
+  bool _isFavorited = true;
+  int _favoriteCount = 41;
+
+  void  _toggleFavorite () {
+    setState(() {
+      _isFavorited = !_isFavorited;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(
+          icon: _isFavorited ? Icon(Icons.star) : Icon(Icons.star_border),
+          color: Colors.red[500],
+          onPressed: _toggleFavorite
+        ),
+        Text((_isFavorited ? _favoriteCount + 1 : _favoriteCount).toString()),
+      ]
+    );
+  }
+}
 
 Column _buildButtonColumn(Color color, IconData icon, String label) {
   return Column(
