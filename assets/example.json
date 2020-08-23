@@ -1,0 +1,10 @@
+{
+    "objects": [
+        {"name": "obj 1", "description": "description 1"},
+        {"name": "obj 2", "description": "description 2"},
+        {"name": "obj 3", "description": "description 3"},
+        {"name": "obj 4", "description": "description 4"},
+        {"name": "obj 5", "description": "description 5"},
+        {"name": "obj 6", "description": "description 6"}
+    ]
+}
