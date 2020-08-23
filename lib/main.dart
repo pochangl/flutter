@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             create: (context) => CountModel(),
             child: Column(
               children: [
-                countButton(),
+                CountButton(),
                 countText(),
               ],
             ),
@@ -44,15 +44,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-Widget countButton() {
-  return Consumer<CountModel> (
-    builder: (context, cart, child) {
-      return IconButton(
-        onPressed: () => cart.increment(),
-        icon: Icon(Icons.add)
-      );
-    }
-  );
+class CountButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () => Provider.of<CountModel>(context, listen: false).increment(),
+      icon: Icon(Icons.add)
+    );
+  }
 }
 
 Widget countText () {
